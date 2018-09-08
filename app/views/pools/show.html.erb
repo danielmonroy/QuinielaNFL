@@ -1,24 +1,87 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+    <p id="notice"><%= notice %></p>
+    <br><br>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="well">
+          <div class="row">
+            <div class="col-md-4">
+              <p>
+                <strong>User:</strong>
+                <%= @pool.user.email %>
+              </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @pool.user %>
-</p>
+            </div>
+            <div class="col-md-4">
+              <p>
+                <strong>Week:</strong>
+                <%= @pool.week %>
+              </p>
 
-<p>
-  <strong>Week:</strong>
-  <%= @pool.week %>
-</p>
+            </div>
+            <div class="col-md-4">
+              <p>
+                <strong>Season:</strong>
+                <%= @pool.season %>
+              </p>
+            </div>
+          </div>
 
-<p>
-  <strong>Season:</strong>
-  <%= @pool.season %>
-</p>
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table text-center">
+                <thead>
+                  <tr class="text-center">
+                    <th class="text-center">Visitante</th>
+                    <th class="text-center">Empate</th>
+                    <th class="text-center">Local</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @forecasts.each do |forecast| %>
+                    <tr id="<%= forecast.id %>">
+                      <% if forecast.selection == 'away' %>
+                      <td><%= button_to @teams.find(forecast.game.away_team).city, forecast, method: :patch, params: {selection: 'away'}, class: "remote-update btn btn-primary" %></td>
+                      <td><%= button_to "Empate", forecast, method: :patch, params: {selection: 'draw'}, class: "remote-update btn btn-default" %></td>
+                      <td><%= button_to @teams.find(forecast.game.home_team).city, forecast, method: :patch, params: {selection: 'home'}, class: "remote-update btn btn-default" %></td>
+                      <% elsif forecast.selection == 'draw' %>
+                      <td><%= button_to @teams.find(forecast.game.away_team).city, forecast, method: :patch, params: {selection: 'away'}, class: "remote-update btn btn-default" %></td>
+                      <td><%= button_to "Empate", forecast, method: :patch, params: {selection: 'draw'}, class: "remote-update btn btn-primary" %></td>
+                      <td><%= button_to @teams.find(forecast.game.home_team).city, forecast, method: :patch, params: {selection: 'home'}, class: "remote-update btn btn-default" %></td>
+                      <% elsif forecast.selection == 'home' %>
+                      <td><%= button_to @teams.find(forecast.game.away_team).city, forecast, method: :patch, params: {selection: 'away'}, class: "remote-update btn btn-default" %></td>
+                      <td><%= button_to "Empate", forecast, method: :patch, params: {selection: 'draw'}, class: "remote-update btn btn-default" %></td>
+                      <td><%= button_to @teams.find(forecast.game.home_team).city, forecast, method: :patch, params: {selection: 'home'}, class: "remote-update btn btn-primary" %></td>
+                      <% else %>
+                      <td><%= button_to @teams.find(forecast.game.away_team).city, forecast, method: :patch, params: {selection: 'away'}, class: "remote-update btn btn-default" %></td>
+                      <td><%= button_to "Empate", forecast, method: :patch, params: {selection: 'draw'}, class: "remote-update btn btn-default" %></td>
+                      <td><%= button_to @teams.find(forecast.game.home_team).city, forecast, method: :patch, params: {selection: 'home'}, class: "remote-update btn btn-default" %></td>
+                      <% end %>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
 
-<p>
-  <strong>Total points:</strong>
-  <%= @pool.total_points %>
-</p>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <p>
+                <strong>Total points:</strong>
+                <%= @pool.total_points %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<%= link_to 'Edit', edit_pool_path(@pool) %> |
-<%= link_to 'Back', pools_path %>
+
+
+
+    <%= link_to 'Edit', edit_pool_path(@pool) %> |
+    <%= link_to 'Back', pools_path %>
+
+  </div>
+</div>

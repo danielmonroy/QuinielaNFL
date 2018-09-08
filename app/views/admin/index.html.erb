@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <br><br>
-    <%= form_tag({controller: "load_games", action: "get_new_week"}, method: "get") do %>
+    <%= form_tag({controller: "admin", action: "get_new_week"}, method: "get") do %>
         <%= label_tag(:week, "Semana:") %>
         <%= number_field_tag(:week, class:"form-control") %>
         <%= label_tag(:season, "Temporada:") %>
