@@ -77,7 +77,7 @@ teams = Team.create([
                   city: "Indianapolis"
               },
               {
-                  short_name: "JAX",
+                  short_name: "JAC",
                   name: "Jacksonville Jaguars",
                   city: "Jacksonville"
               },
@@ -132,9 +132,9 @@ teams = Team.create([
                   city: "Pittsburgh"
               },
               {
-                  short_name: "SD",
-                  name: "San Diego Chargers",
-                  city: "San Diego"
+                  short_name: "LAC",
+                  name: "Los Angeles Chargers",
+                  city: "Los Angeles"
               },
               {
                   short_name: "SF",
@@ -147,9 +147,9 @@ teams = Team.create([
                   city: "Seattle"
               },
               {
-                  short_name: "STL",
-                  name: "St. Louis Rams",
-                  city: "St. Louis"
+                  short_name: "LA",
+                  name: "Los Angeles Rams",
+                  city: "Los Angeles"
               },
               {
                   short_name: "TB",
