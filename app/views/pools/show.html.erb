@@ -40,23 +40,23 @@
                 </thead>
                 <tbody>
                   <% @forecasts.each do |forecast| %>
-                    <tr id="<%= forecast.id %>">
+                    <tr id="forecast-<%= forecast.id %>">
                       <% if forecast.selection == 'away' %>
-                      <td><%= button_to @teams.find(forecast.game.away_team).city, forecast, method: :patch, params: {selection: 'away'}, class: "remote-update btn btn-primary" %></td>
-                      <td><%= button_to "Empate", forecast, method: :patch, params: {selection: 'draw'}, class: "remote-update btn btn-default" %></td>
-                      <td><%= button_to @teams.find(forecast.game.home_team).city, forecast, method: :patch, params: {selection: 'home'}, class: "remote-update btn btn-default" %></td>
+                      <td><%= button_to @teams.find(forecast.game.away_team).city, forecast, method: :put, params: {selection: 'away'}, class: "remote-update btn btn-primary" , remote: :true %></td>
+                      <td><%= button_to "Empate", forecast, method: :put, params: {selection: 'draw'}, class: "remote-update btn btn-default" , remote: :true %></td>
+                      <td><%= button_to @teams.find(forecast.game.home_team).city, forecast, method: :put, params: {selection: 'home'}, class: "remote-update btn btn-default" , remote: :true %></td>
                       <% elsif forecast.selection == 'draw' %>
-                      <td><%= button_to @teams.find(forecast.game.away_team).city, forecast, method: :patch, params: {selection: 'away'}, class: "remote-update btn btn-default" %></td>
-                      <td><%= button_to "Empate", forecast, method: :patch, params: {selection: 'draw'}, class: "remote-update btn btn-primary" %></td>
-                      <td><%= button_to @teams.find(forecast.game.home_team).city, forecast, method: :patch, params: {selection: 'home'}, class: "remote-update btn btn-default" %></td>
+                      <td><%= button_to @teams.find(forecast.game.away_team).city, forecast, method: :put, params: {selection: 'away'}, class: "remote-update btn btn-default" , remote: :true %></td>
+                      <td><%= button_to "Empate", forecast, method: :put, params: {selection: 'draw'}, class: "remote-update btn btn-primary" , remote: :true %></td>
+                      <td><%= button_to @teams.find(forecast.game.home_team).city, forecast, method: :put, params: {selection: 'home'}, class: "remote-update btn btn-default" , remote: :true %></td>
                       <% elsif forecast.selection == 'home' %>
-                      <td><%= button_to @teams.find(forecast.game.away_team).city, forecast, method: :patch, params: {selection: 'away'}, class: "remote-update btn btn-default" %></td>
-                      <td><%= button_to "Empate", forecast, method: :patch, params: {selection: 'draw'}, class: "remote-update btn btn-default" %></td>
-                      <td><%= button_to @teams.find(forecast.game.home_team).city, forecast, method: :patch, params: {selection: 'home'}, class: "remote-update btn btn-primary" %></td>
+                      <td><%= button_to @teams.find(forecast.game.away_team).city, forecast, method: :put, params: {selection: 'away'}, class: "remote-update btn btn-default" , remote: :true %></td>
+                      <td><%= button_to "Empate", forecast, method: :put, params: {selection: 'draw'}, class: "remote-update btn btn-default" , remote: :true %></td>
+                      <td><%= button_to @teams.find(forecast.game.home_team).city, forecast, method: :put, params: {selection: 'home'}, class: "remote-update btn btn-primary" , remote: :true %></td>
                       <% else %>
-                      <td><%= button_to @teams.find(forecast.game.away_team).city, forecast, method: :patch, params: {selection: 'away'}, class: "remote-update btn btn-default" %></td>
-                      <td><%= button_to "Empate", forecast, method: :patch, params: {selection: 'draw'}, class: "remote-update btn btn-default" %></td>
-                      <td><%= button_to @teams.find(forecast.game.home_team).city, forecast, method: :patch, params: {selection: 'home'}, class: "remote-update btn btn-default" %></td>
+                      <td><%= button_to @teams.find(forecast.game.away_team).city, forecast, method: :put, params: {selection: 'away'}, class: "remote-update btn btn-default" , remote: :true %></td>
+                      <td><%= button_to "Empate", forecast, method: :put, params: {selection: 'draw'}, class: "remote-update btn btn-default" , remote: :true %></td>
+                      <td><%= button_to @teams.find(forecast.game.home_team).city, forecast, method: :put, params: {selection: 'home'}, class: "remote-update btn btn-default" , remote: :true %></td>
                       <% end %>
                     </tr>
                   <% end %>

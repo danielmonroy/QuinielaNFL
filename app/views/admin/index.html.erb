@@ -1,12 +1,43 @@
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-8 col-md-offset-2">
     <br><br>
     <%= form_tag({controller: "admin", action: "get_new_week"}, method: "get") do %>
-        <%= label_tag(:week, "Semana:") %>
-        <%= number_field_tag(:week, class:"form-control") %>
-        <%= label_tag(:season, "Temporada:") %>
-        <%= number_field_tag(:season, class:"form-control") %>
-        <%= submit_tag("Cargar Juegos", class:"btn btn-default") %>
+      <div class="row">
+        <div class="col-md-4">
+          <%= label_tag(:week, "Semana:") %>
+          <%= number_field_tag(:week, nil, class:"form-control") %>
+        </div>
+        <div class="col-md-4">
+          <%= label_tag(:season, "Temporada:") %>
+          <%= number_field_tag(:season, nil, class:"form-control") %>
+        </div>
+        <div class="col-md-4">
+          <br>
+          <%= submit_tag("Cargar Juegos", class:"btn btn-primary btn-block") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <br><br>
+    <%= form_tag({controller: "admin", action: "count_week_points"}, method: "get") do %>
+      <div class="row">
+        <div class="col-md-4">
+          <%= label_tag(:week, "Semana:") %>
+          <%= number_field_tag(:week, nil, class:"form-control") %>
+        </div>
+        <div class="col-md-4">
+          <%= label_tag(:season, "Temporada:") %>
+          <%= number_field_tag(:season, nil, class:"form-control") %>
+        </div>
+        <div class="col-md-4">
+          <br>
+          <%= submit_tag("Contar Puntos", class:"btn btn-primary btn-block") %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

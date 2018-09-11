@@ -40,6 +40,7 @@ class ForecastsController < ApplicationController
   # PATCH/PUT /forecasts/1
   # PATCH/PUT /forecasts/1.json
   def update
+    @teams = Team.all
     respond_to do |format|
       if @forecast.update(selection: params[:selection])
         format.html { redirect_to @forecast.pool, notice: 'Forecast was successfully updated.' }
