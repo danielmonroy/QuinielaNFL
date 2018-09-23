@@ -40,15 +40,23 @@ class ForecastsController < ApplicationController
   # PATCH/PUT /forecasts/1
   # PATCH/PUT /forecasts/1.json
   def update
-    @teams = Team.all
-    respond_to do |format|
-      if @forecast.update(selection: params[:selection])
-        format.html { redirect_to @forecast.pool, notice: 'Forecast was successfully updated.' }
-        format.json { render :show, status: :ok, location: @forecast }
-        format.js
+    if @forecast.pool.user == current_user
+      @teams = Team.all
+      if @forecast.game.can_edit?
+        respond_to do |format|
+          if @forecast.update(selection: params[:selection])
+            format.html { redirect_to @forecast.pool, notice: 'Forecast was successfully updated.' }
+            format.json { render :show, status: :ok, location: @forecast }
+            format.js
+          else
+            format.html { render :edit }
+            format.json { render json: @forecast.errors, status: :unprocessable_entity }
+          end
+        end
       else
-        format.html { render :edit }
-        format.json { render json: @forecast.errors, status: :unprocessable_entity }
+        respond_to do |format|
+          format.js
+        end
       end
     end
   end

@@ -3,6 +3,12 @@ class AdminController < ApplicationController
   require 'json'
   require 'open-uri'
 
+  def index
+    if current_user.role != 5
+      redirect_to root_path
+    end
+  end
+
   def get_new_week
     week = params[:week]
     season = params[:season]

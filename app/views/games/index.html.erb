@@ -2,29 +2,26 @@
   <div class="col-md-12">
     <p id="notice"><%= notice %></p>
 
-    <h1>Games</h1>
-
-    <table class="table">
+    <h1>Juegos</h1>
+    <br>
+    <br>
+    <table class="table text-center">
       <thead>
         <tr>
-          <th>Home Team</th>
-          <th>Away Team</th>
-          <th>Scheduled At</th>
-          <th>Home Score</th>
-          <th>Away Score</th>
-          <th>Week</th>
-          <th>Season</th>
+          <th class="text-center">Local</th>
+          <th class="text-center">Visitante</th>
+          <th class="text-center">Día de Juego</th>
+          <th class="text-center">Semana</th>
+          <th class="text-center">Temporada</th>
         </tr>
       </thead>
 
       <tbody>
         <% @games.each do |game| %>
         <tr>
-          <td><%= @teams.where(id: game.home_team).first.name %></td>
-          <td><%= @teams.where(id: game.away_team).first.name %></td>
+          <td><%= @teams.where(id: game.home_team).first.name %><br><b><%= game.home_team_score %></b></td>
+          <td><%= @teams.where(id: game.away_team).first.name %><br><b><%= game.away_team_score %></b></td>
           <td><%= game.scheduled_at.strftime("%B %d, %Y, %A") %></td>
-          <td><%= game.home_team_score %></td>
-          <td><%= game.away_team_score %></td>
           <td><%= game.week %></td>
           <td><%= game.season %></td>
         </tr>

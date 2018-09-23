@@ -2,31 +2,105 @@
   <div class="col-md-12">
     <p id="notice"><%= notice %></p>
 
-    <h1>Pools</h1>
+    <h1>Quinielas</h1>
+    <br>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="well">
+          <h2>Semana 3</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Participante</th>
+                <th>Semana</th>
+                <th>Temporada</th>
+                <th>Puntuación</th>
+                <th colspan="1"></th>
+              </tr>
+            </thead>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Week</th>
-          <th>Season</th>
-          <th>Total points</th>
-          <th colspan="1"></th>
-        </tr>
-      </thead>
+            <tbody>
+              <% @pools.where(week: 3).each do |pool| %>
+              <tr>
+                <td><%= pool.user.name %></td>
+                <td><%= pool.week %></td>
+                <td><%= pool.season %></td>
+                <td><%= pool.total_points %></td>
+                <td><%= link_to 'Show', pool %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="well">
+          <h2>Semana 2</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Participante</th>
+                <th>Semana</th>
+                <th>Temporada</th>
+                <th>Puntuación</th>
+                <th colspan="1"></th>
+              </tr>
+            </thead>
 
-      <tbody>
-        <% @pools.each do |pool| %>
-        <tr>
-          <td><%= pool.user.name %></td>
-          <td><%= pool.week %></td>
-          <td><%= pool.season %></td>
-          <td><%= pool.total_points %></td>
-          <td><%= link_to 'Show', pool %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+            <tbody>
+              <% @pools.where(week: 2).each do |pool| %>
+              <tr>
+                <td><%= pool.user.name %></td>
+                <td><%= pool.week %></td>
+                <td><%= pool.season %></td>
+                <td><%= pool.total_points %></td>
+                <td><%= link_to 'Show', pool %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="well">
+          <h2>Semana 1</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Participante</th>
+                <th>Semana</th>
+                <th>Temporada</th>
+                <th>Puntuación</th>
+                <th colspan="1"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @pools.where(week: 1).each do |pool| %>
+              <tr>
+                <td><%= pool.user.name %></td>
+                <td><%= pool.week %></td>
+                <td><%= pool.season %></td>
+                <td><%= pool.total_points %></td>
+                <td><%= link_to 'Show', pool %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
 
     <br>
 
