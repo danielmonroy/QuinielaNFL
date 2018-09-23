@@ -15,7 +15,7 @@ class Game < ApplicationRecord
       data.each do |a, b|
         if a.to_i == self.id
           found = true
-          if b['qtr'] != nil
+          if b['qtr'] != nil and b['qtr'] != 'Pregame'
             self.editable = false
             self.save
             return false
