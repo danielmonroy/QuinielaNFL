@@ -9,7 +9,7 @@
             <div class="col-md-4">
               <p>
                 <strong>Participante:</strong>
-                <%= @pool.user.email %>
+                <%= @pool.user.name %>
               </p>
 
             </div>
@@ -98,12 +98,8 @@
         </div>
       </div>
     </div>
-
-
-
-
-    <%= link_to 'Edit', edit_pool_path(@pool) %> |
-    <%= link_to 'Back', pools_path %>
+    <br><br>
+    <%= link_to 'Atrás', pools_path %>
 
   </div>
 </div>
