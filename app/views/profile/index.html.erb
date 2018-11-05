@@ -36,5 +36,37 @@
         </div>
       </div>
     </div>
+    <br><br>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="well">
+          <div class="row">
+            <div class="col-md-12">
+              <h2>Totales de contrincantes:</h2>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Jugador</th>
+                    <th>Acumulado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @players.each do |p| %>
+                  <% acumulado = 0 %>
+                  <% Pool.where(user_id: p.id).each do |pool| %>
+                  <% acumulado = acumulado + pool.total_points %>
+                  <% end %>
+                  <tr>
+                    <td><%= p.name %></td>
+                    <td><%= acumulado %></td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
