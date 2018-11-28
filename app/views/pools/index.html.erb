@@ -7,6 +7,35 @@
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <div class="well">
+          <h2>Temporada 2018 - Semana 13</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Participante</th>
+                <th>Puntuación</th>
+                <th colspan="1"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @pools.where(week: 13).each do |pool| %>
+              <tr>
+                <td><%= pool.user.name %></td>
+                <td><%= pool.total_points %></td>
+                <td><%= link_to 'Show', pool %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="well">
           <h2>Temporada 2018 - Semana 12</h2>
           <table class="table">
             <thead>
