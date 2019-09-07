@@ -10,6 +10,7 @@
           <th>City</th>
           <th>Team Name</th>
           <th>Short Name</th>
+          <th></th>
         </tr>
       </thead>
 
@@ -19,6 +20,7 @@
           <td><%= team.city %></td>
           <td><%= team.name %></td>
           <td><%= team.short_name %></td>
+          <td><img src="https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/<%= team.short_name != "JAC" ? team.short_name : "JAX" %>.svg" class="img-fluid mx-auto d-block" style="max-height:35px;" width="35"></td>
         </tr>
         <% end %>
       </tbody>
